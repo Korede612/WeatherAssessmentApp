@@ -134,6 +134,7 @@
                         <outlet property="cityLabel" destination="CWP-r8-Jsy" id="ls4-uM-v9x"/>
                         <outlet property="conditionImageView" destination="mYn-vV-MBC" id="m2p-Zi-vVR"/>
                         <outlet property="searchTF" destination="2eh-wL-W34" id="8Cr-lV-VEN"/>
+                        <outlet property="seeMoreWeatherInfo" destination="b55-bL-Znf" id="gzE-eZ-HN7"/>
                         <outlet property="tempLabel" destination="w9o-tW-03D" id="KoE-fj-quI"/>
                     </connections>
                 </viewController>
@@ -154,10 +155,10 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemFillColor">
-            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

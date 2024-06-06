@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTF: UITextField!
     
+    @IBOutlet weak var seeMoreWeatherInfo: UIButton!
+    
     let locationManager = CLLocationManager()
     let viewModel = ViewModel(networkManager: NetworkManager())
     var cancellables = Set<AnyCancellable>()
@@ -23,6 +25,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        seeMoreWeatherInfo.isHidden = true
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
 //        locationManager.requestLocation()

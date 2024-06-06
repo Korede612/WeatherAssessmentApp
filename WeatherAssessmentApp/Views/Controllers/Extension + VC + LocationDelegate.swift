@@ -47,6 +47,7 @@ extension ViewController: CLLocationManagerDelegate {
                 conditionImageView.image = UIImage(systemName: weatherInfo.iconName)
                 tempLabel.text = weatherInfo.temp
                 cityLabel.text = weatherInfo.cityName
+                seeMoreWeatherInfo.isHidden = false
             } catch {
                 print("Failed to decode data: \(error)")
             }

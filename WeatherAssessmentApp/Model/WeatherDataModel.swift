@@ -15,8 +15,20 @@ struct WeatherDataModel: Codable {
 
 struct Weather: Codable {
     let id: Int
+    let description: String
 }
 
 struct MainWeather: Codable {
     let temp: Float
+    let minTemp: Float
+    let maxTemp: Float
+    let humidity: Float
+    
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case minTemp = "temp_min"
+        case maxTemp = "temp_max"
+        case humidity
+    }
+    
 }

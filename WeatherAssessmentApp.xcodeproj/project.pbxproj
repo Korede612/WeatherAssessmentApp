@@ -29,6 +29,7 @@
 		93EDFDD02C11D73B001E78A9 /* WeatherAssessmentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFDCF2C11D73B001E78A9 /* WeatherAssessmentAppTests.swift */; };
 		93EDFDE12C11D996001E78A9 /* MockedNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFDE02C11D996001E78A9 /* MockedNetworkManager.swift */; };
 		93EDFDE32C11D9D1001E78A9 /* MockedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 93EDFDE22C11D9D1001E78A9 /* MockedResponse.json */; };
+		93EDFDE52C11DA51001E78A9 /* ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFDE42C11DA51001E78A9 /* ViewModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		93EDFDCF2C11D73B001E78A9 /* WeatherAssessmentAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAssessmentAppTests.swift; sourceTree = "<group>"; };
 		93EDFDE02C11D996001E78A9 /* MockedNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedNetworkManager.swift; sourceTree = "<group>"; };
 		93EDFDE22C11D9D1001E78A9 /* MockedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockedResponse.json; sourceTree = "<group>"; };
+		93EDFDE42C11DA51001E78A9 /* ViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			children = (
 				93EDFDDD2C11D96B001E78A9 /* MockedNetwork */,
 				93EDFDCF2C11D73B001E78A9 /* WeatherAssessmentAppTests.swift */,
+				93EDFDE42C11DA51001E78A9 /* ViewModelTests.swift */,
 			);
 			path = WeatherAssessmentAppTests;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			files = (
 				93EDFDD02C11D73B001E78A9 /* WeatherAssessmentAppTests.swift in Sources */,
 				93EDFDE12C11D996001E78A9 /* MockedNetworkManager.swift in Sources */,
+				93EDFDE52C11DA51001E78A9 /* ViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

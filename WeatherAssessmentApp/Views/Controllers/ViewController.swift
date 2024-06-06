@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTF: UITextField!
     
+    @IBOutlet weak var savedLocationsView: UIView!
+    @IBOutlet weak var savedLocationTitleLabel: UILabel!
+    @IBOutlet weak var savedlocationTableView: UITableView!
+    
     @IBOutlet weak var seeMoreWeatherInfo: UIButton!
     
     var currentweatherInfo: WeatherModel?

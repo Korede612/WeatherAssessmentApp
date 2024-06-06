@@ -12,6 +12,12 @@ struct WeatherModel {
     let cityName: String
     let temperature: Float
     
+    let minTemp: Float
+    let maxTemp: Float
+    let humidity: Float
+    
+    let description: String
+    
     var temp: String {
         return String(format: "%.1f", temperature)
     }
@@ -42,5 +48,9 @@ extension WeatherModel {
         self.cityName = weatherData.name
         self.conditionId = weatherData.weather[0].id
         self.temperature = weatherData.main.temp
+        self.minTemp = weatherData.main.minTemp
+        self.maxTemp = weatherData.main.maxTemp
+        self.humidity = weatherData.main.humidity
+        self.description = weatherData.weather.first?.description ?? "No description"
     }
 }

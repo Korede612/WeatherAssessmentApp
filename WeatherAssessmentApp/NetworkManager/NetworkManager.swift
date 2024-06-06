@@ -18,7 +18,7 @@ class NetworkManager: NetworkRouterProvider {
             request.httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: [])
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         }
-//        print("here is the endpoint: \(endpoint.url.absoluteString)")
+        print("here is the endpoint: \(endpoint.url.absoluteString)")
         return URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { data, response -> (HTTPURLResponse, Data?) in
                 guard let httpResponse = response as? HTTPURLResponse else {

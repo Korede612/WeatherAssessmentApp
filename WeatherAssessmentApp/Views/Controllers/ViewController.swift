@@ -25,7 +25,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+//        locationManager.requestLocation()
+        tempLabel.text = "- -"
+        cityLabel.text = "- -"
+        conditionImageView.image = UIImage(systemName: "questionmark.circle")
         
         searchTF.delegate = self
     }

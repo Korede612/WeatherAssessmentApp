@@ -12,16 +12,26 @@ enum HTTPMethod: String {
     case get = "GET"        // Other requests can be added here
 }
 
-enum APIEndpoint {
+protocol APIKey {
+    var apiKey: String { get }
+}
+
+extension APIKey {
+    var apiKey: String {
+        Bundle.main.object(forInfoDictionaryKey: "WeatherAPIKey") as! String
+    }
+}
+
+enum APIEndpoint: APIKey {
     case fetchWeatherDataFor(loc: String)
     case fetchWeatherDataUsing(lat: String, lon: String)
     
     var url: URL {
         switch self {
         case .fetchWeatherDataFor(let loc):
-            return URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=9250e45e424e1ca6a05fe8f347df00aa&units=metric&q=\(loc)")!
+            return URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&q=\(loc)")!
         case .fetchWeatherDataUsing(let lat, let lon):
-            return URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=9250e45e424e1ca6a05fe8f347df00aa&units=metric&lat=\(lat)&lon=\(lon)")!
+            return URL(string: "https://api.openweathermap.org/data/2.5/weather?appid=\(apiKey)&units=metric&lat=\(lat)&lon=\(lon)")!
         }
     }
     

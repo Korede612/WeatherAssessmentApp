@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var seeMoreWeatherInfo: UIButton!
     
+    var currentweatherInfo: WeatherModel?
+    
     let locationManager = CLLocationManager()
     let viewModel = ViewModel(networkManager: NetworkManager())
     var cancellables = Set<AnyCancellable>()
@@ -44,8 +46,14 @@ class ViewController: UIViewController {
         locationManager.requestLocation()
     }
     
-    @IBAction func moreDetailButtonTapped(_ sender: UIButton) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moreInfo" {
+            print("Segue is working correctly as expected")
+            guard let destinationVC = segue.destination as? WeatherDetailViewController else {
+                return
+            }
+            destinationVC.selectedWeatherInfo = currentweatherInfo
+        }
     }
     
 

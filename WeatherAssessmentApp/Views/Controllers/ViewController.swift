@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Combine
 
 class ViewController: UIViewController {
 
@@ -16,8 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var searchTF: UITextField!
     
     let locationManager = CLLocationManager()
-    
     let viewModel = ViewModel(networkManager: NetworkManager())
+    var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()

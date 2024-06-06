@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class ViewModel {
+    var networkManager: NetworkRouterProvider?
+    
+    init(networkManager: NetworkRouterProvider) {
+        self.networkManager = networkManager
+    }
+}

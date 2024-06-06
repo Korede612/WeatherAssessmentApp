@@ -42,13 +42,17 @@ class ViewController: UIViewController {
     }
     
     @IBAction func moreDetailButtonTapped(_ sender: UIButton) {
-//        performSearch()
+        
     }
     
 
     func performSearch() {
         guard let cityName = searchTF.text else { return }
-//        weatherManager.fetchWeather(cityName: cityName)
+        let fetchWeather: APIEndpoint = .fetchWeatherDataFor(loc: cityName)
+        viewModel.networkManager?.request(endpoint: fetchWeather)
+            .receive(on: RunLoop.main)
+            .sink(receiveCompletion: requestCompletionHandler(completion:), receiveValue: requestDataHandler)
+            .store(in: &cancellables)
         searchTF.endEditing(true)
         
     }

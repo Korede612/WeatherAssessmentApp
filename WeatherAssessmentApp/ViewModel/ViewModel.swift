@@ -11,9 +11,9 @@ protocol ViewModelInterface: DataStorable {
     var currentweatherInfo: WeatherModel? { get set }
     var networkManager: NetworkRouterProvider? { get set }
     var savedLocation: [String] { get set }
-    func saveCurrentLocation(location: String)
-    func getSavedLocations() -> [String]
-    func deleteLocation(location: String)
+    func saveCurrentLocation(location: String, path: String)
+    func getSavedLocations(path: String) -> [String]
+    func deleteLocation(location: String, path: String)
     func updateSavedLocation()
 }
 
@@ -29,26 +29,28 @@ class ViewModel: ViewModelInterface {
         savedLocation = getSavedLocations()
     }
     
-    func saveCurrentLocation(location: String) {
-        var preservedData = getSavedLocations()
-        if !preservedData.contains(location) {
-            preservedData.append(location)
-        }
-        
-        preserveToUserdefault(preservedData, account: "Locations")
-    }
-    
-    func deleteLocation(location: String) {
-        let newSavedLocation = savedLocation.filter({$0 != location})
-        preserveToUserdefault(newSavedLocation, account: "Locations")
-        savedLocation = getSavedLocations()
-    }
-    
     func updateSavedLocation() {
         savedLocation = getSavedLocations()
     }
     
-    func getSavedLocations() -> [String] {
-        return retrieveData(for: "Locations", type: [String].self) ?? []
+    
+}
+
+extension ViewModelInterface {
+    func getSavedLocations(path: String = "Locations") -> [String] {
+        return retrieveData(for: path, type: [String].self) ?? []
+    }
+    
+    func deleteLocation(location: String, path: String = "Locations") {
+        let newSavedLocation = savedLocation.filter({$0 != location})
+        preserveToUserdefault(newSavedLocation, account: path)
+    }
+    
+    func saveCurrentLocation(location: String, path: String = "Locations") {
+        var preservedData = getSavedLocations()
+        if !preservedData.contains(location) {
+            preservedData.append(location)
+        }
+        preserveToUserdefault(preservedData, account: path)
     }
 }

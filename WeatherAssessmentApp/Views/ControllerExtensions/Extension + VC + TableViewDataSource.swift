@@ -32,6 +32,7 @@ extension ViewController: UITableViewDelegate {
     private func deleteItem(at indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
         viewModel.deleteLocation(location: item)
+        viewModel.updateSavedLocation()
         hideSelectedTableView()
         var snapshot = dataSource.snapshot()
         snapshot.deleteItems([item])

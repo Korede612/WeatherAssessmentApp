@@ -33,7 +33,7 @@ class WeatherDetailViewController: UIViewController {
         guard let location = viewModel?.currentweatherInfo?.cityName,
         let viewModel else { return }
         viewModel.saveCurrentLocation(location: location)
-        let alert = UIAlertController(title: "Saving Location", message: "Location Saved Successfully", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Saving Location", message: "Location Saved Successfully", preferredStyle: .alert)
         alert.addAction(.init(title: "Ok", style: .default))
         self.present(alert, animated: true)
     }

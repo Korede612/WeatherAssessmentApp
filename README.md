@@ -25,8 +25,8 @@ To run the WeatherClima App, clone the repository and open the Xcode project fil
 
 ```
 git clone https://github.com/yourusername/weatherclima-app.git
-cd weatherclima-app
-open WeatherClima.xcodeproj
+cd WeatherAssessmentApp
+open WeatherAssessmentApp.xcodeproj
 ```
 ## Usage
 Launch the app on your iOS device or simulator.

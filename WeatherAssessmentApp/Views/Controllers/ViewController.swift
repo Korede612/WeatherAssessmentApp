@@ -22,10 +22,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var seeMoreWeatherInfo: UIButton!
     
-    var currentweatherInfo: WeatherModel?
+    var dataSource: UITableViewDiffableDataSource<Int, String>!
+
     
     let locationManager = CLLocationManager()
-    let viewModel = ViewModel(networkManager: NetworkManager())
+    var viewModel: ViewModelInterface = ViewModel(networkManager: NetworkManager())
     var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
@@ -34,12 +35,50 @@ class ViewController: UIViewController {
         seeMoreWeatherInfo.isHidden = true
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-//        locationManager.requestLocation()
         tempLabel.text = "- -"
         cityLabel.text = "- -"
         conditionImageView.image = UIImage(systemName: "questionmark.circle")
         
         searchTF.delegate = self
+        setupTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.updateSavedLocation()
+        hideSelectedTableView()
+        updateWeatherData(location: viewModel.savedLocation)
+    }
+    
+    func setupTableView() {
+        savedlocationTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
+        savedlocationTableView.delegate = self
+        
+        dataSource = UITableViewDiffableDataSource<Int, String>(tableView: savedlocationTableView) { tableView, indexPath, location in
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            cell.textLabel?.text = "\(indexPath.row + 1): \(location)"
+            cell.backgroundColor = .clear
+            return cell
+        }
+        hideSelectedTableView()
+        // Initial data
+        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(viewModel.savedLocation)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    func hideSelectedTableView() {
+        savedLocationsView.isHidden = viewModel.savedLocation.isEmpty
+    }
+    
+    func updateWeatherData(location: [String]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(location)
+        print("Locations: \(location)")
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     @IBAction func searchButtonTapped(_ sender: UIButton) {
@@ -52,11 +91,10 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "moreInfo" {
-            print("Segue is working correctly as expected")
             guard let destinationVC = segue.destination as? WeatherDetailViewController else {
                 return
             }
-            destinationVC.selectedWeatherInfo = currentweatherInfo
+            destinationVC.viewModel = viewModel
         }
     }
     

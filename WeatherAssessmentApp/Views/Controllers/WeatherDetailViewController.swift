@@ -18,7 +18,7 @@ class WeatherDetailViewController: UIViewController {
     @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var selectedWeatherInfo: WeatherModel?
+    var viewModel: ViewModelInterface?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +29,22 @@ class WeatherDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @IBAction func saveLocationTapped(_ sender: UIButton) {
+        guard let location = viewModel?.currentweatherInfo?.cityName,
+        let viewModel else { return }
+        viewModel.saveCurrentLocation(location: location)
+        let alert = UIAlertController(title: "Saving Location", message: "Location Saved Successfully", preferredStyle: .actionSheet)
+        alert.addAction(.init(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+    
     func configureView() {
-        conditionImageView.image = UIImage(systemName: selectedWeatherInfo?.iconName ?? "")
-        tempLabel.text = selectedWeatherInfo?.temp
-        cityLabel.text = selectedWeatherInfo?.cityName
-        minTempLabel.text = "\(selectedWeatherInfo?.minTemp ?? 0)°C"
-        maxTempLabel.text = "\(selectedWeatherInfo?.maxTemp ?? 0)°C"
-        humidityLabel.text = "\(selectedWeatherInfo?.humidity ?? 0)"
-        descriptionLabel.text = selectedWeatherInfo?.description ?? ""
+        conditionImageView.image = UIImage(systemName: viewModel?.currentweatherInfo?.iconName ?? "")
+        tempLabel.text = viewModel?.currentweatherInfo?.temp
+        cityLabel.text = viewModel?.currentweatherInfo?.cityName
+        minTempLabel.text = "\(viewModel?.currentweatherInfo?.minTemp ?? 0)°C"
+        maxTempLabel.text = "\(viewModel?.currentweatherInfo?.maxTemp ?? 0)°C"
+        humidityLabel.text = "\(viewModel?.currentweatherInfo?.humidity ?? 0)"
+        descriptionLabel.text = viewModel?.currentweatherInfo?.description ?? ""
     }
 }

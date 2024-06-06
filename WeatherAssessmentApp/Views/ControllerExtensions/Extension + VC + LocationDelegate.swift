@@ -48,7 +48,7 @@ extension ViewController: CLLocationManagerDelegate {
                 tempLabel.text = weatherInfo.temp
                 cityLabel.text = weatherInfo.cityName
                 seeMoreWeatherInfo.isHidden = false
-                currentweatherInfo = weatherInfo
+                viewModel.currentweatherInfo = weatherInfo
             } catch {
                 print("Failed to decode data: \(error)")
             }

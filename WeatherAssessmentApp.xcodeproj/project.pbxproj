@@ -12,6 +12,7 @@
 		9323DC5E2C117A2200C7962F /* UserdefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323DC5D2C117A2200C7962F /* UserdefaultManager.swift */; };
 		9323DC602C117A4A00C7962F /* DataStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323DC5F2C117A4A00C7962F /* DataStorable.swift */; };
 		9323DC632C117BDB00C7962F /* WeatherDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323DC622C117BDB00C7962F /* WeatherDetailViewController.swift */; };
+		9323DC652C11940300C7962F /* Extension + VC + TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9323DC642C11940300C7962F /* Extension + VC + TableViewDataSource.swift */; };
 		932E09C12C10DDD90047EF78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E09C02C10DDD90047EF78 /* AppDelegate.swift */; };
 		932E09C32C10DDD90047EF78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E09C22C10DDD90047EF78 /* SceneDelegate.swift */; };
 		932E09C52C10DDD90047EF78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932E09C42C10DDD90047EF78 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 		9323DC5D2C117A2200C7962F /* UserdefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultManager.swift; sourceTree = "<group>"; };
 		9323DC5F2C117A4A00C7962F /* DataStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStorable.swift; sourceTree = "<group>"; };
 		9323DC622C117BDB00C7962F /* WeatherDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailViewController.swift; sourceTree = "<group>"; };
+		9323DC642C11940300C7962F /* Extension + VC + TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + VC + TableViewDataSource.swift"; sourceTree = "<group>"; };
 		932E09BD2C10DDD90047EF78 /* WeatherAssessmentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherAssessmentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		932E09C02C10DDD90047EF78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		932E09C22C10DDD90047EF78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			children = (
 				932E09E22C114FCB0047EF78 /* Extension + ViewController + TextFieldDelegate.swift */,
 				932E09E42C1150310047EF78 /* Extension + VC + LocationDelegate.swift */,
+				9323DC642C11940300C7962F /* Extension + VC + TableViewDataSource.swift */,
 			);
 			path = ControllerExtensions;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				9323DC5E2C117A2200C7962F /* UserdefaultManager.swift in Sources */,
 				9323DC5C2C1179F900C7962F /* DataCodableInterface.swift in Sources */,
 				932E09C32C10DDD90047EF78 /* SceneDelegate.swift in Sources */,
+				9323DC652C11940300C7962F /* Extension + VC + TableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

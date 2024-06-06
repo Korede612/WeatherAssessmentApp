@@ -35,18 +35,48 @@ final class ViewModelTests: XCTestCase {
             }, receiveValue: { response, data in
                 XCTAssertNotNil(response)
                 XCTAssertNotNil(data)
+                
+                if let data {
+                    do {
+                        let weatherModel = try JSONDecoder().decode(WeatherDataModel.self, from: data)
+                        let weatherInfo = WeatherModel(from: weatherModel)
+                        print("Received data: \(weatherModel)")
+                        XCTAssertEqual(weatherInfo.cityName, "Cupertino")
+                        XCTAssertEqual(weatherInfo.conditionId, 800)
+                        XCTAssertEqual(weatherInfo.description, "clear sky")
+                        XCTAssertEqual(weatherInfo.humidity, 62)
+                        XCTAssertEqual(weatherInfo.maxTemp, 26.83)
+                        XCTAssertEqual(weatherInfo.minTemp, 11.49)
+                        XCTAssertEqual(weatherInfo.temp, "21.4")
+//                        viewModel?.currentweatherInfo = weatherInfo
+                    } catch {
+                        print("Failed to decode data: \(error)")
+                    }
+                }
+                    
             })
             .store(in: &cancellables)
     }
     
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testSavedLocations() throws {
+        viewModel?.saveCurrentLocation(location: "Lagos", path: "test_saved_location")
+        let locations = viewModel?.getSavedLocations(path: "test_saved_location")
+        XCTAssertNotNil(locations)
+        XCTAssertEqual(locations?.count, 1)
+        XCTAssertEqual(locations?.first, "Lagos")
     }
-
+    
+    func testDeleteLocation() throws {
+        viewModel?.saveCurrentLocation(location: "Lagos", path: "test_saved_location")
+        var locations = viewModel?.getSavedLocations(path: "test_saved_location")
+        XCTAssertNotNil(locations)
+        XCTAssertEqual(locations?.count, 1)
+        viewModel?.deleteLocation(location: "Lagos", path: "test_saved_location")
+        locations = viewModel?.getSavedLocations(path: "test_saved_location")
+        XCTAssertNotNil(locations)
+        XCTAssertEqual(locations?.count, 0)
+    }
+    
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
         self.measure {

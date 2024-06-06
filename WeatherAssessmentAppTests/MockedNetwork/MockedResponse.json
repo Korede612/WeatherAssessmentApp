@@ -1,0 +1,2 @@
+
+{"coord":{"lon":-122.0312,"lat":37.3323},"weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01n"}],"base":"stations","main":{"temp":21.4,"feels_like":21.21,"temp_min":11.49,"temp_max":26.83,"pressure":1008,"humidity":62},"visibility":10000,"wind":{"speed":3.6,"deg":300},"clouds":{"all":0},"dt":1717648821,"sys":{"type":2,"id":2001717,"country":"US","sunrise":1717591677,"sunset":1717644350},"timezone":-25200,"id":5341145,"name":"Cupertino","cod":200}

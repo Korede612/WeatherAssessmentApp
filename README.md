@@ -24,7 +24,7 @@ The WeatherAssessmentApp app is your go-to application for fetching current weat
 To run the WeatherClima App, clone the repository and open the Xcode project file. Build and run the project on an iOS simulator or device.
 
 ```
-git clone https://github.com/yourusername/weatherclima-app.git
+git clone https://github.com/Korede612/WeatherAssessmentApp.git
 cd WeatherAssessmentApp
 open WeatherAssessmentApp.xcodeproj
 ```
